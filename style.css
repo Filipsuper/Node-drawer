@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(110, 110, 110);
 }
 body{
     background-color: #fff;
@@ -35,6 +37,8 @@ body{
     width: var(--w);
     height: var(--h);
     box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.024);
+    resize: both;
+    overflow: auto;
 }
 header{
     height: 10%;
@@ -49,4 +53,5 @@ input{
     outline: none;
     border: none;
     font-size: 5em;
+    text-transform: uppercase;
 }

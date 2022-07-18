@@ -55,7 +55,7 @@ function undo(){
 }
 
 function link(){
-    ctx.clearRect(0,0,canvas.height, canvas.width)
+    ctx.clearRect(0,0,2000, 2000);
 
     let h = canvas.height / canvas.offsetHeight;
     let w = canvas.width / canvas.offsetWidth;
