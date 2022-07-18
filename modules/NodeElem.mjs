@@ -7,19 +7,20 @@ export default class NodeElem{
         this.y = y;
 
         this.#div = document.createElement("div");
+        const header = document.createElement("header");
+        header.className = "drag"
         const input = document.createElement("input");
-        input.placeholder = "..."
+        input.placeholder = "...";
 
         this.#div.className = "node";
         this.#div.style.left = this.x + "px";
         this.#div.style.top = this.y + "px";
         
         document.getElementById("board").appendChild(this.#div);
+        this.#div.appendChild(header);
         this.#div.appendChild(input);
     }
     setSize(w,h){
-        // this.#div.style.width = w + "px";
-        // this.#div.style.height = h + "px";
         this.#div.style.setProperty("--w", w + "px");
         this.#div.style.setProperty("--h", h + "px");
     }

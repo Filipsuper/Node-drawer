@@ -13,6 +13,16 @@ document.getElementById("undo").addEventListener("click", undo);
 
 board.addEventListener("mousedown", e => {
 
+    function mouseUp(evnt){
+        board.removeEventListener("mousemove", handleMousemovement);
+        board.removeEventListener("mouseup", mouseUp);
+        link();
+    }
+
+    board.addEventListener("mouseup", mouseUp);
+    
+    if (e.target !== board) return;
+
     let initX = e.clientX;
     let initY = e.clientY;
 
@@ -23,17 +33,7 @@ board.addEventListener("mousedown", e => {
         elem.setSize(moveX - initX, moveY - initY);
     }
 
-    function mouseUp(evnt){
-
-        board.removeEventListener("mousemove", handleMousemovement);
-        board.removeEventListener("mouseup", mouseUp);
-        
-        link();
-    }
-
     board.addEventListener("mousemove", handleMousemovement);
-
-    board.addEventListener("mouseup", mouseUp);
 
     let elem = new NodeElem(initX, initY);
     arr.push(elem);
@@ -61,6 +61,7 @@ function link(){
     let w = canvas.width / canvas.offsetWidth;
 
     ctx.lineWidth = 15;
+
     ctx.beginPath();
     ctx.moveTo((arr[0].x * w)+ arr[0].div.offsetWidth/2, (arr[0].y * h) + arr[0].div.offsetHeight/2);
     for(let i = 1; i<arr.length; i++){
